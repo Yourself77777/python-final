@@ -12,7 +12,7 @@ spear = False
 medkit = False
 def loop():
     while life == True:
-        if life == False:   
+        if life == False:   # Finish loop
             name = input("Welcome to our game what is your name\n").strip().capitalize()
             print("hello " + name)
 
