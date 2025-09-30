@@ -10,44 +10,50 @@ import time #Lindon
  # Lindon and Easton
 spear = False
 medkit = False
-def stop():
-    time.sleep(3)
+def stop(num):
+    time.sleep(num)
     print("...")
 def game():
   # Finish loop
     name = input("Welcome to our game what is your name\n").strip().capitalize()
     print("hello " + name)
-
-    direction1 = input('You arive at a dark forest with three ways, (Right, Left, and Forward) which will you take: ').capitalize()# Easton
+    while True:
+        direction1 = input('You arive at a dark forest with three ways, (Right, Left, and Forward) which will you take: ').capitalize()# Easton
+        if direction1 in ["Right", "Left", "Forward"]:
+            break
+        else:
+            print("It must be Right, Left, or Forward")
     if direction1 == "Right":
         print('You come upon a math wizard in order to pass by you must awnser his equation.')
         number = int(input("What's 5+2: "))#Fernando and ciara
         if number == 7:
             print("You are correct! Here is a spear you may need this in the future.")
             spear = True
-            direction3 = input("Would you like to you start walking and you come across another turn.(Right, Left, and Foward): ").capitalize()# Alexa added the word "and" and space between : and ) # easton
+            while True:
+                direction3 = input("You like to you start walking and you come across another turn.(Right, Left, and Foward): ").capitalize()# Alexa added the word "and" and space between : and ) # easton
+                if direction3 in ["Right", "Left", "Forward"]:
+                    break
+                else:
+                    print("It must be Right, Left, or Forward")
             if direction3 == "Right":
                 print("you fell down a hole") # Easton Lindon and Alexa
-                stop()
-                stop()
-                stop()
+                stop(1)
+                stop(1.5)
+                stop(2)
                 print("Good job you finished at Wonderland, thought you where dead huh well nope!! You got the Wonderland ending!!")# Alexa added Wonderland to the print statement
             elif direction3 == "Left":
                 cabin = input("You come a cross an abandoned cabin and look into through the window and you see no one inside would you like to enter?: ").capitalize()# easton and lindon
                 if cabin == "Yes":
                     print("Well you enter and see a bed and take a nap.")
                     ("ZZZ")
-                    stop()
+                    stop(2)
                     print(f"Welp you never woke up!")#lindon
                     game()
                 elif cabin == "No":
                     print("You take to long and end up getting attacked by a bear unless you have a spear")# lindon
                     if spear == True:
                         print("Good job you defeated the bear and move on.") # Alexa fixed "Defeated"
-                        move = input("Would you like to move on or live in the cabin").capitalize() 
-                
-                
-
+                        move = input("Would you like to move on or live in the cabin ").capitalize() 
                         if move == "Live in cabin":
                             print("Congrates you beat the game!!")
                         elif move == "Move on":
@@ -55,19 +61,15 @@ def game():
                             answer = input("How many states are in the USA")#fernado and ciara
                             if answer == "50":
                                     print("You got it correct! king 7w7!")
-                                    stop()
+                                    stop(2)
                                     print("You got the question right but he got mad at you and stabbed you!")
                                     game()
-                                    
-
                             else:
                                 print(f"you are not correct")
                                 game()
                     else:
                         print(f"Wow you where so close yet so far")
                         game()  
-
-    
         elif number <= 7:
             game()
         elif number >= 7:
@@ -77,8 +79,6 @@ def game():
     elif direction1 == "Forward":# Alexa
         print(f'You have stumbled on some rocks and fell off a cliff.')
         game()
-
-
     elif direction1 == "Left":# Easton and Alexa
         print('Good job you avoided the first obstical and gained a spear') # Alexa fixed the grammer to the word "avoided"
         spear = True
@@ -89,7 +89,7 @@ def game():
             pais = input("De que pais eres?")#fernando and Ciara
             if pais == "USA":
                 print("Correcto, sigue tu camino.")
-                stop()
+                stop(2)
                 print("Well you beat the game congrates!")
             else:
                 print(f"ight u not from there.(Then he stabs you.)")# fernando and ciara
@@ -117,8 +117,6 @@ def game():
                         game()
                     elif bridge2=="no":
                         print('you swim safely across and beat the game')# Easton
-                
-        
             elif chest1 == "No":
                 print("ok maybe you got lucky, or maybe not, I don't know")
                 moveing =  input("You come across a turn and and no other way would you like to move on?")
@@ -129,13 +127,8 @@ def game():
                     else:
                         print(f"boi you died for not being tuff.")
                         game()
-                        
+
                 else:
                     print(f"You dumb dumb, you died")
                     game()
-
-
-    else:# Alexa and Lindon
-        print(f"You turn around and get disintergrated by a black hole behind you.")
-        game()
 game()
